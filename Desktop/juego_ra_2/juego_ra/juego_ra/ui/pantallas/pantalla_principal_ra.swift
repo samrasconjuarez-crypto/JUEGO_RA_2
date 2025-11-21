@@ -73,7 +73,7 @@ struct PantallaPrincipal: View {
                     VStack(spacing: 12) {
  
                         NavigationLink {
-                            VistaCamara()
+                            VistaCamaraAR()
                         } label: {
                             botonGF(texto: "Empezar misión")
                         }

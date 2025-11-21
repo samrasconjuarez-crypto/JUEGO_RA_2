@@ -28,12 +28,12 @@ let pistas = [
                     conecta_con_pista: "pista_2")
             ]
         )
-        //imagen de huellas
+        //imagen de huellas 31.74211580565893, -106.43247238321732
     ),
     Pista(
         ubicacion: CLLocation(
-            latitude: 31.742536761389587,
-            longitude: -106.432063100641
+            latitude: 31.74211580565893,
+            longitude: -106.43247238321732
         ),
         id: "pista_2",
         cuerpo: PistaInteractuable(
