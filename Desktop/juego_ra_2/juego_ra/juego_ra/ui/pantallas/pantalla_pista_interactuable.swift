@@ -1,3 +1,7 @@
+//pantalla_pista_interactuable.swift
+
+
+
 import SwiftUI
 
 struct PantallaPistaInteractuable: View {
