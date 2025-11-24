@@ -1,4 +1,4 @@
-//modelo pista
+
 import CoreLocation
 
 struct Pista: Identifiable{

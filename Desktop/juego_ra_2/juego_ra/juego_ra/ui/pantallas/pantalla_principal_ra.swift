@@ -1,12 +1,5 @@
-//
-//  pantalla_principal_ra.swift
-//  juego_ra
-//
-//  Created by alumno on 11/14/25.
-//
-
 import SwiftUI
-
+ 
 extension Color {
     static let gfRedDark = Color(red: 0.65, green: 0.22, blue: 0.17)
     static let gfRed = Color(red: 0.89, green: 0.32, blue: 0.23)
@@ -15,14 +8,11 @@ extension Color {
     static let gfCream = Color(red: 0.97, green: 0.89, blue: 0.75)
     static let gfInk = Color(red: 0.13, green: 0.09, blue: 0.07)
 }
-
+ 
 struct PantallaPrincipal: View {
     
-    // 1. Necesitamos el controlador aquí para pasarlo o consultar estado
-    @Environment(ControladorJuego.self) var controlador
-    
     @State var proveedor_ubicacion = ServicioUbicacion()
-
+ 
     var body: some View {
         NavigationStack {
             ZStack {
@@ -34,9 +24,11 @@ struct PantallaPrincipal: View {
                     endPoint: .bottom
                 )
                 .ignoresSafeArea()
-
+ 
                 VStack(spacing: 20) {
                     
+                    
+ 
                     // Título
                     VStack(spacing: 4) {
                         Text("DIARIO")
@@ -44,7 +36,7 @@ struct PantallaPrincipal: View {
                             .tracking(4)
                             .foregroundColor(.gfCream)
                             .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 3)
-
+ 
                         Text("PERDIDO")
                             .font(.system(size: 36, weight: .black, design: .serif))
                             .tracking(4)
@@ -58,7 +50,7 @@ struct PantallaPrincipal: View {
                         .scaledToFit()
                         .frame(width: 180, height: 180)
                         .shadow(color: .black.opacity(0.5), radius: 8, x:0, y: 4)
-
+ 
                     // Cinta decorativa
                     Text("Bienvenidos a su primera misión")
                         .font(.system(size: 16, weight: .semibold, design: .serif))
@@ -74,26 +66,25 @@ struct PantallaPrincipal: View {
                                 )
                         )
                         .shadow(radius: 4)
-
+ 
                     Spacer().frame(height: 20)
-
+ 
                     // Botones principales
                     VStack(spacing: 12) {
-
+ 
                         NavigationLink {
-
-                            PantallaHistoria() // O PantallaJuego() si ya la creaste
+                            VistaCamara()
                         } label: {
                             botonGF(texto: "Empezar misión")
                         }
-
+ 
                         NavigationLink {
-                            // 2. CORRECCIÓN: Solo llamamos a la pantalla, sin texto extra
-                            PantallaContinuarPartida()
+                            Text("Pantalla de continuar partida")
+                                .foregroundColor(.gfInk)
                         } label: {
                             botonGF(texto: "Continuar")
                         }
-
+ 
                         Button {
                             print("Salir del juego")
                         } label: {
@@ -101,9 +92,9 @@ struct PantallaPrincipal: View {
                         }
                     }
                     .padding(.horizontal, 32)
-
+ 
                     Spacer()
-
+ 
                     // Pie de página
                     Text("No hay lugar para héroes en mi mundo.")
                         .font(.system(size: 12, weight: .medium, design: .serif))
@@ -116,7 +107,7 @@ struct PantallaPrincipal: View {
         }
     }
 }
-
+ 
 // Botón estilo Gravity Falls
 @ViewBuilder
 func botonGF(texto: String) -> some View {
@@ -135,11 +126,9 @@ func botonGF(texto: String) -> some View {
         )
         .shadow(color: .black.opacity(0.5), radius: 4, x: 0, y: 3)
 }
-
-
+ 
+ 
 #Preview {
-    // 3. CORRECCIÓN DEL CRASH EN PREVIEW:
-    // Inyectamos el controlador simulado aquí para que la vista previa no falle.
     PantallaPrincipal()
-        .environment(ControladorJuego())
 }
+ 
